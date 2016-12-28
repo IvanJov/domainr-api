@@ -86,7 +86,12 @@ var apiRequest = function (path, queryString, callback) {
         return reject(error);
       }
 
-      resolve(JSON.parse(body));
+      let body = JSON.parse(body);
+      if (body.error) {
+        return reject(body.error.message);
+      }
+
+      resolve(body);
     })
   });
 };
