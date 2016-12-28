@@ -29,9 +29,20 @@ describe('Domainr-api', function() {
   });
 
   describe('search', function () {
+    it('should return error if query propery is not sent', function() {
+      let searchObj = {
+        location: 'de'
+      };
+
+      let domainrApi = new domainr('some-key');
+      domainrApi
+        .search(searchObj).should.be.rejectedWith('Query propery is required for search method');
+    });
+
     it('should return error if some propery is not string', function() {
       let searchObj = {
-        quert: 1234
+        query: 'query',
+        location: 1234
       };
 
       let domainrApi = new domainr('some-key');
@@ -54,6 +65,12 @@ describe('Domainr-api', function() {
   });
 
   describe('status', function () {
+    it('should return error if domains are not sent', function() {
+      let domainrApi = new domainr('some-key');
+      domainrApi
+        .status().should.be.rejectedWith('Domain array is required for status method');
+    });
+
     it('should return error if domains are not array', function() {
       let domains = 'ace.coffee';
 

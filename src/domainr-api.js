@@ -17,6 +17,10 @@ class domainr {
   search(properties) {
     const queryKeys = ['defaults', 'location', 'query', 'registrat'];
 
+    if(!properties.query || typeof properties.query != 'string') {
+      return Promise.reject('Query propery is required for search method');
+    }
+
     let badData = Object.values(properties).filter(function (prop) {
       return typeof prop != 'string';
     });
@@ -39,6 +43,10 @@ class domainr {
   }
 
   status(domainArray){
+    if(!domainArray) {
+      return Promise.reject('Domain array is required for status method');
+    }
+
     if (!Array.isArray(domainArray)) {
       return Promise.reject('Domains need to be sent as array for status function');
     }
