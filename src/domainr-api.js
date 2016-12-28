@@ -21,8 +21,8 @@ class domainr {
       return Promise.reject('Query propery is required for search method');
     }
 
-    let badData = Object.values(properties).filter(function (prop) {
-      return typeof prop != 'string';
+    let badData = Object.keys(properties).filter(function (key) {
+      return typeof properties[key] != 'string';
     });
     if (badData.length > 0) {
       return Promise.reject('Properties for search function need to be string');
