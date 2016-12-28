@@ -29,6 +29,7 @@ let domainrApi = new domainr('some-key');
 Search method let's you search for domain. You will get `results` array with some domain recommendations.
 
 It accepts these arguments:
+
 | Parameter	| Required | Description | Example |
 | --------- | -------- | ----------- | ------- |
 | query     | Yes | Term(s) to search against. | acme cafe |
