@@ -1,7 +1,7 @@
 var chai = require('chai');
 var chaiAsPromised = require("chai-as-promised");
 var nock = require('nock');
-var domainrApi = require('../index');
+var domainrApi = require('../src/domainr-api');
 
 chai.use(chaiAsPromised);
 var should = chai.should();

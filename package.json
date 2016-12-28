@@ -2,9 +2,10 @@
   "name": "domainr-api",
   "version": "1.0.0",
   "description": "Unofficial Domainr API client for NodeJS",
-  "main": "index.js",
+  "main": "lib/domainr-api.js",
   "scripts": {
-    "test": "mocha"
+    "prepublish": "rimraf lib && babel src --out-dir lib",
+    "test": "mocha --compilers js:babel-register 'test/*.js'"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,9 @@
   },
   "homepage": "https://github.com/IvanJov/domainr-api#readme",
   "devDependencies": {
-    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-register": "^6.18.0",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
     "mocha": "^3.2.0",
