@@ -14,6 +14,7 @@ This is simple and lightweight NodeJS wrapper for Domainr API V2. All methods ar
     3. [Status method](#status-method)
 4. [Official documentation](#official-documentation)
 5. [Author](#author)
+6. [Future](#future)
 
 ## Requirements
 
@@ -202,3 +203,9 @@ Official Domainr documentation can be found on: [http://domainr.build/docs](http
 ## Author
 
 Author of the package is [Ivan Jovanovic](http://ivanjov.com/).
+
+## Future
+
+I have couple things in mind for the future:
+* [ ] Add Register method to the class
+* [ ] Create a ChatBot that will easily search/check/register domains  
