@@ -3,12 +3,17 @@
 This is simple and lightweight NodeJS wrapper for Domainr API hosted on [mashape.com](mashape.com). For using this library, you will need Mashape Key ([How to get free mashape key?](http://docs.mashape.com/api-keys))
 You will be able to use 10000 request for free each month!
 
-1. [Instalation](#instalation)
-2. [Usage](#usage)
+1. [Requirements](#requirements)
+2. [Instalation](#instalation)
+3. [Usage](#usage)
     1. [Initialization](#initialization)
     2. [Search method](#search-method)
     3. [Status method](#status-method)
-2. [Official documentation](#official-documentation)
+4. [Official documentation](#official-documentation)
+
+## Requirements
+
+Package requires NodeJS version >= 4.0.0
 
 ## Installation
 
