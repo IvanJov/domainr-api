@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/IvanJov/domainr-api.svg?branch=master)](https://travis-ci.org/IvanJov/domainr-api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is simple and lightweight NodeJS wrapper for Domainr API V2. 
+This is simple and lightweight NodeJS wrapper for Domainr API V2. All methods are returning promises! 
 
 1. [Requirements](#requirements)
 2. [Instalation](#instalation)
