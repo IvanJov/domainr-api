@@ -86,7 +86,7 @@ var apiRequest = function (path, queryString, callback) {
         return reject(error);
       }
 
-      let body = JSON.parse(body);
+      body = JSON.parse(body);
       if (body.error) {
         return reject(body.error.message);
       }
