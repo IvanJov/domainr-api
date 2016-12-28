@@ -63,7 +63,7 @@ var apiRequest = function (path, queryString, callback) {
   };
 
   return new Promise(function (resolve, reject) {
-    request(url.format(urlObj), function (error, response, body) {
+    request.get(url.format(urlObj), function (error, response, body) {
       if (error) {
         return reject(error);
       }
