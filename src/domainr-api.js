@@ -15,16 +15,16 @@ class domainr {
   }
 
   search(properties) {
-    var queryKeys = ['defaults', 'location', 'quert', 'registrat'];
+    const queryKeys = ['defaults', 'location', 'quert', 'registrat'];
 
-    var badData = Object.values(properties).filter(function (prop) {
+    let badData = Object.values(properties).filter(function (prop) {
       return typeof prop != 'string';
     });
     if (badData.length > 0) {
       return Promise.reject('Properties for search function need to be string');
     }
 
-    var queryObj = {};
+    let queryObj = {};
     queryObj['mashape-key'] = this.mashapeKey;
 
     queryKeys.forEach(function (val) {
@@ -43,7 +43,7 @@ class domainr {
       return Promise.reject('Domains need to be sent as array for status function');
     }
 
-    var queryObj = {};
+    let queryObj = {};
     queryObj['mashape-key'] = this.mashapeKey;
     queryObj.domain = domainArray.join(',');
 
@@ -55,7 +55,7 @@ class domainr {
  Private methods
 *******/
 var apiRequest = function (path, queryString, callback) {
-  var urlObj  = {
+  let urlObj  = {
     protocol: 'https',
     hostname: 'domainr.p.mashape.com',
     pathname: 'v2/' + path,
@@ -74,8 +74,8 @@ var apiRequest = function (path, queryString, callback) {
 };
 
 var serialize = function(obj) {
-  var str = [];
-  for(var p in obj)
+  let str = [];
+  for(let p in obj)
     if (obj.hasOwnProperty(p)) {
       str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
     }
