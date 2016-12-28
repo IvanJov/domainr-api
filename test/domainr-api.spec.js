@@ -79,6 +79,14 @@ describe('Domainr-api', function() {
         .status(domains).should.be.rejectedWith('Domains need to be sent as array for status function');
     });
 
+    it('should return error if there are more than 10 domains in array', function() {
+      let domains = ['ace.coffee', 'ace.coffee', 'ace.coffee', 'ace.coffee', 'ace.coffee', 'ace.coffee', 'ace.coffee', 'ace.coffee', 'ace.coffee', 'ace.coffee', 'ace.coffee'];
+
+      let domainrApi = new domainr('some-key');
+      domainrApi
+        .status(domains).should.be.rejectedWith('Domain array can have maximum 10 domains');
+    });
+
     it('should return valid status object', function() {
       let domains = ['ace.coffee', 'acecafe.com', 'acecafe.net', 'acecafe.co', 'acecafe.io'];
 
