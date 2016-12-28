@@ -43,7 +43,7 @@ describe('Domainr-api', function() {
       let searchObj = {
         defaults: 'club,coffee',
         location: 'de',
-        quert: 'acme cafe',
+        query: 'acme cafe',
         registrat: 'namecheap.com'
       };
 
