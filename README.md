@@ -116,3 +116,63 @@ domainrApi
   ]
 }
 ```
+
+### Status method
+
+Status method gives you status for each domain you send in array. You will get `status` array with domain information.
+It has limit to 10 domains per call.
+
+It accepts these arguments:
+
+| Parameter	| Required | Description | Example |
+| --------- | -------- | ----------- | ------- |
+| domains     | Yes | Array of domains to check | ['acme.coffee', 'acmecafe.com'] |
+
+#### Example request:
+```js
+let domains = ['ace.coffee', 'acecafe.com', 'acecafe.net', 'acecafe.co', 'acecafe.io'];
+
+let domainrApi = new domainr('some-key');
+domainrApi
+  .status(domains)
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+```
+
+#### Data returned
+```
+{
+  "status": [
+    {
+      "domain": "acecafe.net",
+      "zone": "net",
+      "status": "active",
+      "summary": "active"
+    },
+    {
+      "domain": "acecafe.com",
+      "zone": "com",
+      "status": "active",
+      "summary": "active"
+    },
+    {
+      "domain": "acecafe.co",
+      "zone": "co",
+      "status": "active",
+      "summary": "active"
+    },
+    {
+      "domain": "ace.coffee",
+      "zone": "coffee",
+      "status": "undelegated active",
+      "summary": "active"
+    },
+    {
+      "domain": "acecafe.io",
+      "zone": "io",
+      "status": "undelegated inactive",
+      "summary": "inactive"
+    }
+  ]
+}
+```
