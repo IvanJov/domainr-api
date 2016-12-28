@@ -1,5 +1,8 @@
 # domainr-api
 
+[![npm version](https://badge.fury.io/js/domainr-api.svg)](https://badge.fury.io/js/domainr-api)
+[![Build Status](https://travis-ci.org/IvanJov/domainr-api.svg?branch=master)](https://travis-ci.org/IvanJov/domainr-api)
+
 This is simple and lightweight NodeJS wrapper for Domainr API hosted on [mashape.com](mashape.com). For using this library, you will need Mashape Key ([How to get free mashape key?](http://docs.mashape.com/api-keys))
 You will be able to use 10000 request for free each month!
 
