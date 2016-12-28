@@ -10,6 +10,7 @@ You will be able to use 10000 request for free each month!
     2. [Search method](#search-method)
     3. [Status method](#status-method)
 4. [Official documentation](#official-documentation)
+5. [Author](#author)
 
 ## Requirements
 
@@ -191,3 +192,7 @@ domainrApi
 
 ## Official documentation
 Official Domainr documentation can be found on: [http://domainr.build/docs](http://domainr.build/docs)
+
+## Author
+
+Author of the package is [Ivan Jovanovic](http://ivanjov.com/).
