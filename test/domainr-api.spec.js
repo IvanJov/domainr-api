@@ -4,7 +4,7 @@ const nock = require('nock');
 const domainr = require('../src/domainr-api');
 
 chai.use(chaiAsPromised);
-var should = chai.should();
+const should = chai.should();
 
 const searchData = require('./data/search');
 const statusData = require('./data/status');
@@ -30,24 +30,24 @@ describe('Domainr-api', function() {
 
   describe('search', function () {
     it('should return error if some propery is not string', function() {
-      var searchObj = {
+      let searchObj = {
         quert: 1234
       };
 
-      var domainrApi = new domainr('some-key');
+      let domainrApi = new domainr('some-key');
       domainrApi
         .search(searchObj).should.be.rejectedWith('Properties for search function need to be string');
     });
 
     it('should return valid search object', function() {
-      var searchObj = {
+      let searchObj = {
         defaults: 'club,coffee',
         location: 'de',
         quert: 'acme cafe',
         registrat: 'namecheap.com'
       };
 
-      var domainrApi = new domainr('some-key');
+      let domainrApi = new domainr('some-key');
       domainrApi
         .search(searchObj).should.eventually.deep.equal(searchData);
     });
@@ -55,17 +55,17 @@ describe('Domainr-api', function() {
 
   describe('status', function () {
     it('should return error if domains are not array', function() {
-      var domains = 'ace.coffee';
+      let domains = 'ace.coffee';
 
-      var domainrApi = new domainr('some-key');
+      let domainrApi = new domainr('some-key');
       domainrApi
         .status(domains).should.be.rejectedWith('Domains need to be sent as array for status function');
     });
 
     it('should return valid status object', function() {
-      var domains = ['ace.coffee', 'acecafe.com', 'acecafe.net', 'acecafe.co', 'acecafe.io'];
+      let domains = ['ace.coffee', 'acecafe.com', 'acecafe.net', 'acecafe.co', 'acecafe.io'];
 
-      var domainrApi = new domainr('some-key');
+      let domainrApi = new domainr('some-key');
       domainrApi
         .status(domains).should.eventually.deep.equal(statusData);
     });
