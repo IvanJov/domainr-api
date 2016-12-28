@@ -1,6 +1,59 @@
-var request = require('request');
-var url = require('url');
+"use strict";
 
+import request from 'request';
+import url from 'url';
+
+/*******
+Main domainr class
+*******/
+class domainr {
+  constructor(mashapeKey) {
+    if (!mashapeKey)
+      throw new Error('Mashape key is required');
+
+    this.mashapeKey = mashapeKey;
+  }
+
+  search(properties) {
+    var queryKeys = ['defaults', 'location', 'quert', 'registrat'];
+
+    var badData = Object.values(properties).filter(function (prop) {
+      return typeof prop != 'string';
+    });
+    if (badData.length > 0) {
+      return Promise.reject('Properties for search function need to be string');
+    }
+
+    var queryObj = {};
+    queryObj['mashape-key'] = this.mashapeKey;
+
+    queryKeys.forEach(function (val) {
+      if (!properties[val]) {
+        return true;
+      }
+
+      queryObj[val] = properties[val];
+    });
+
+    return apiRequest('search', serialize(queryObj));
+  }
+
+  status(domainArray){
+    if (!Array.isArray(domainArray)) {
+      return Promise.reject('Domains need to be sent as array for status function');
+    }
+
+    var queryObj = {};
+    queryObj['mashape-key'] = this.mashapeKey;
+    queryObj.domain = domainArray.join(',');
+
+    return apiRequest('status', serialize(queryObj));
+  }
+}
+
+/*******
+ Private methods
+*******/
 var apiRequest = function (path, queryString, callback) {
   var urlObj  = {
     protocol: 'https',
@@ -27,49 +80,6 @@ var serialize = function(obj) {
       str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
     }
   return str.join("&");
-};
-
-var domainr = function (mashapeKey) {
-  if (!mashapeKey)
-    throw new Error('Mashape key is required');
-
-  this.mashapeKey = mashapeKey;
-};
-
-domainr.prototype.search = function(properties) {
-  var queryKeys = ['defaults', 'location', 'quert', 'registrat'];
-
-  var badData = Object.values(properties).filter(function (prop) {
-    return typeof prop != 'string';
-  });
-  if (badData.length > 0) {
-    return Promise.reject('Properties for search function need to be string');
-  }
-
-  var queryObj = {};
-  queryObj['mashape-key'] = this.mashapeKey;
-
-  queryKeys.forEach(function (val) {
-    if (!properties[val]) {
-      return true;
-    }
-
-    queryObj[val] = properties[val];
-  });
-  
-  return apiRequest('search', serialize(queryObj));
-};
-
-domainr.prototype.status = function(domainArray) {
-  if (!Array.isArray(domainArray)) {
-    return Promise.reject('Domains need to be sent as array for status function');
-  }
-
-  var queryObj = {};
-  queryObj['mashape-key'] = this.mashapeKey;
-  queryObj.domain = domainArray.join(',');
-
-  return apiRequest('status', serialize(queryObj));
 };
 
 module.exports = domainr;

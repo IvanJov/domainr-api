@@ -1,13 +1,13 @@
-var chai = require('chai');
-var chaiAsPromised = require("chai-as-promised");
-var nock = require('nock');
-var domainrApi = require('../src/domainr-api');
+const chai = require('chai');
+const chaiAsPromised = require("chai-as-promised");
+const nock = require('nock');
+const domainr = require('../src/domainr-api');
 
 chai.use(chaiAsPromised);
 var should = chai.should();
 
-var searchData = require('./data/search');
-var statusData = require('./data/status');
+const searchData = require('./data/search');
+const statusData = require('./data/status');
 
 before(function () {
   nock('https://domainr.p.mashape.com/')
@@ -24,7 +24,7 @@ before(function () {
 describe('Domainr-api', function() {
   it('should throw error if mashape key is not specified', function () {
     (function () {
-      new domainrApi();
+      new domainr();
     }).should.throw('Mashape key is required');
   });
 
@@ -34,8 +34,8 @@ describe('Domainr-api', function() {
         quert: 1234
       };
 
-      var domainr = new domainrApi('some-key');
-      domainr
+      var domainrApi = new domainr('some-key');
+      domainrApi
         .search(searchObj).should.be.rejectedWith('Properties for search function need to be string');
     });
 
@@ -47,8 +47,8 @@ describe('Domainr-api', function() {
         registrat: 'namecheap.com'
       };
 
-      var domainr = new domainrApi('some-key');
-      domainr
+      var domainrApi = new domainr('some-key');
+      domainrApi
         .search(searchObj).should.eventually.deep.equal(searchData);
     });
   });
@@ -57,16 +57,16 @@ describe('Domainr-api', function() {
     it('should return error if domains are not array', function() {
       var domains = 'ace.coffee';
 
-      var domainr = new domainrApi('some-key');
-      domainr
+      var domainrApi = new domainr('some-key');
+      domainrApi
         .status(domains).should.be.rejectedWith('Domains need to be sent as array for status function');
     });
 
     it('should return valid status object', function() {
       var domains = ['ace.coffee', 'acecafe.com', 'acecafe.net', 'acecafe.co', 'acecafe.io'];
 
-      var domainr = new domainrApi('some-key');
-      domainr
+      var domainrApi = new domainr('some-key');
+      domainrApi
         .status(domains).should.eventually.deep.equal(statusData);
     });
   });
