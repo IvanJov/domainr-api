@@ -15,7 +15,7 @@ class domainr {
   }
 
   search(properties) {
-    const queryKeys = ['defaults', 'location', 'query', 'registrat'];
+    const queryKeys = ['defaults', 'location', 'query', 'registrar'];
 
     if(!properties.query || typeof properties.query != 'string') {
       return Promise.reject('Query propery is required for search method');

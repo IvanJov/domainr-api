@@ -55,7 +55,7 @@ describe('Domainr-api', function() {
         defaults: 'club,coffee',
         location: 'de',
         query: 'acme cafe',
-        registrat: 'namecheap.com'
+        registrar: 'namecheap.com'
       };
 
       let domainrApi = new domainr('some-key');
