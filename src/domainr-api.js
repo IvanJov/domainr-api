@@ -15,7 +15,7 @@ class domainr {
   }
 
   search(properties) {
-    const queryKeys = ['defaults', 'location', 'quert', 'registrat'];
+    const queryKeys = ['defaults', 'location', 'query', 'registrat'];
 
     let badData = Object.values(properties).filter(function (prop) {
       return typeof prop != 'string';
