@@ -87,6 +87,14 @@ describe('Domainr-api', function() {
         .status(domains).should.be.rejectedWith('Domain array can have maximum 10 domains');
     });
 
+    it('should return error if some domain is not string', function() {
+      let domains = ['ace.coffee', 1234];
+
+      let domainrApi = new domainr('some-key');
+      domainrApi
+        .status(domains).should.be.rejectedWith('All domains must be a string');
+    });
+
     it('should return valid status object', function() {
       let domains = ['ace.coffee', 'acecafe.com', 'acecafe.net', 'acecafe.co', 'acecafe.io'];
 

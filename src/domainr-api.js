@@ -55,6 +55,12 @@ class domainr {
       return Promise.reject('Domain array can have maximum 10 domains');
     }
 
+    let notString = [];
+    notString = domainArray.filter(domain => typeof domain != 'string');
+    if (notString.length > 0) {
+      return Promise.reject('All domains must be a string');
+    }
+
     let queryObj = {};
     queryObj['mashape-key'] = this.mashapeKey;
     queryObj.domain = domainArray.join(',');
