@@ -1,10 +1,10 @@
 {
   "name": "domainr-api",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Unofficial Domainr API client for NodeJS",
   "main": "lib/domainr-api.js",
   "scripts": {
-    "prepublish": "rimraf lib && babel src --out-dir lib",
+    "compile": "rimraf lib && babel src --out-dir lib",
     "test": "mocha --compilers js:babel-register 'test/*.js'"
   },
   "repository": {
