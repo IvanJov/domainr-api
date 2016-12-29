@@ -13,6 +13,7 @@ This is simple and lightweight NodeJS wrapper for Domainr API V2. All methods ar
     1. [Initialization](#initialization)
     2. [Search method](#search-method)
     3. [Status method](#status-method)
+    3. [Register method](#register-method)
 4. [Official documentation](#official-documentation)
 5. [Author](#author)
 6. [Future](#future)
@@ -44,6 +45,8 @@ To initialize domainr-api class, you need to pass your Mashape key.
 ```js
 let domainrApi = new domainr('some-key');
 ```
+
+
 
 ### Search method
 
@@ -138,6 +141,8 @@ domainrApi
 }
 ```
 
+
+
 ### Status method
 
 Status method gives you status for each domain you send in array. You will get `status` array with domain information.
@@ -196,6 +201,33 @@ domainrApi
     }
   ]
 }
+```
+
+
+
+### Register method
+
+Register method gives generated URL that redirects user to checkout page. It's sent as a string.
+
+It accepts these arguments:
+
+| Parameter	| Required | Description | Example |
+| --------- | -------- | ----------- | ------- |
+| domain    | Yes | Domain name. | example.com |
+| registrar | No | Registrar domain name | namecheap.com |
+
+#### Example request:
+```js
+let domainrApi = new domainr('some-key');
+domainrApi
+  .register('example.com')
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+```
+
+#### Data returned
+```
+https://www.shareasale.com/r.cfm?b=210737&m=25581&u=303669&urllink=https%3A%2F%2Fiwantmyname.com%2Fsearch%2Fadd%2Fexample.com%3Fr%3Ddomai.nr
 ```
 
 ## Official documentation
