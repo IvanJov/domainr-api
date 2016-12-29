@@ -236,5 +236,5 @@ Author of the package is [Ivan Jovanovic](http://ivanjov.com/).
 ## Future
 
 I have couple things in mind for the future:
-* [ ] Add Register method to the class
+* [x] ~~Add Register method to the class~~
 * [ ] Create a ChatBot that will easily search/check/register domains  
