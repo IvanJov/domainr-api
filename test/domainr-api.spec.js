@@ -8,6 +8,7 @@ const should = chai.should();
 
 const searchData = require('./data/search');
 const statusData = require('./data/status');
+const registerData = require('./data/register');
 
 before(function () {
   nock('https://domainr.p.mashape.com/')
@@ -19,6 +20,11 @@ before(function () {
     .get('/v2/status')
     .query(true)
     .reply(200, statusData);
+
+  nock('https://domainr.p.mashape.com/', registerData)
+    .get('/v2/register')
+    .query(true)
+    .reply(200, '<html><body></body></body></html>');
 });
 
 describe('Domainr-api', function() {
@@ -101,6 +107,27 @@ describe('Domainr-api', function() {
       let domainrApi = new domainr('some-key');
       domainrApi
         .status(domains).should.eventually.deep.equal(statusData);
+    });
+  });
+
+  describe('register', function () {
+    it('should return error if domain is not sent', function() {
+      let domainrApi = new domainr('some-key');
+      domainrApi
+        .register().should.be.rejectedWith('Domain is required');
+    });
+
+    it('should return error if domain is not string', function() {
+      let domainrApi = new domainr('some-key');
+      domainrApi
+        .register(123).should.be.rejectedWith('Domain needs to be a string');
+    });
+
+    it('should return valid location string', function() {
+      let domainrApi = new domainr('some-key');
+      domainrApi
+        .status('acme.coffee')
+        .should.eventually.equal('example.com');
     });
   });
 });

@@ -3,9 +3,10 @@
 import request from 'request';
 import url from 'url';
 
-/*******
+/*******************************
 Main domainr class
-*******/
+********************************/
+
 class domainr {
   constructor(mashapeKey) {
     if (!mashapeKey)
@@ -21,9 +22,7 @@ class domainr {
       return Promise.reject('Query propery is required for search method');
     }
 
-    let badData = Object.keys(properties).filter(function (key) {
-      return typeof properties[key] != 'string';
-    });
+    let badData = Object.keys(properties).filter(key => typeof properties[key] != 'string');
     if (badData.length > 0) {
       return Promise.reject('Properties for search function need to be string');
     }
@@ -31,7 +30,7 @@ class domainr {
     let queryObj = {};
     queryObj['mashape-key'] = this.mashapeKey;
 
-    queryKeys.forEach(function (val) {
+    queryKeys.forEach(val => {
       if (!properties[val]) {
         return true;
       }
@@ -39,7 +38,7 @@ class domainr {
       queryObj[val] = properties[val];
     });
 
-    return apiRequest('search', serialize(queryObj));
+    return apiRequest(this.mashapeKey, 'search', queryObj);
   }
 
   status(domainArray){
@@ -55,53 +54,81 @@ class domainr {
       return Promise.reject('Domain array can have maximum 10 domains');
     }
 
-    let notString = [];
-    notString = domainArray.filter(domain => typeof domain != 'string');
+    let notString = domainArray.filter(domain => typeof domain != 'string');
     if (notString.length > 0) {
       return Promise.reject('All domains must be a string');
     }
 
-    let queryObj = {};
-    queryObj['mashape-key'] = this.mashapeKey;
-    queryObj.domain = domainArray.join(',');
+    return apiRequest(this.mashapeKey, 'status', {domain: domainArray.join(',')});
+  }
 
-    return apiRequest('status', serialize(queryObj));
+  register(domain) {
+
+    if(!domain) {
+      return Promise.reject('Domain is required');
+    }
+
+    if(typeof domain != 'string') {
+      return Promise.reject('Domain needs to be a string');
+    }
+
+    return new Promise((resolve, reject) => {
+      apiRequest(this.mashapeKey, 'register', {domain})
+        .then((response) => {
+          if(response.headers.location)
+            return resolve(response.headers.location);
+
+          resolve(response.request.uri.href);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
   }
 }
 
-/*******
+
+/*******************************
  Private methods
-*******/
-var apiRequest = function (path, queryString, callback) {
+ *******************************/
+const apiRequest = function (key, path, query) {
+  query['mashape-key'] = key;
+
   let urlObj  = {
     protocol: 'https',
     hostname: 'domainr.p.mashape.com',
     pathname: 'v2/' + path,
-    search: '?' + queryString
+    search: '?' + serialize(query)
   };
 
-  return new Promise(function (resolve, reject) {
-    request.get(url.format(urlObj), function (error, response, body) {
+  return new Promise((resolve, reject) => {
+    request.get(url.format(urlObj), (error, response, body) => {
       if (error) {
         return reject(error);
       }
 
-      body = JSON.parse(body);
-      if (body.error) {
-        return reject(body.error.message);
+      if(path != 'register') {
+        body = JSON.parse(body);
+        if (body.error) {
+          return reject(body.error.message);
+        }
+
+        resolve(body);
       }
 
-      resolve(body);
+      resolve(response);
     })
   });
 };
 
-var serialize = function(obj) {
+const serialize = function(obj) {
   let str = [];
-  for(let p in obj)
-    if (obj.hasOwnProperty(p)) {
-      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+  Object.keys(obj).forEach(key => {
+    if (obj.hasOwnProperty(key)) {
+      str.push(encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]));
     }
+  });
+
   return str.join("&");
 };
 
