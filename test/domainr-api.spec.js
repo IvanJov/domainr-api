@@ -66,7 +66,7 @@ describe('Domainr-api', function() {
 
       let domainrApi = new domainr('some-key');
       domainrApi
-        .search(searchObj).should.eventually.deep.equal(searchData);
+        .search(searchObj).should.eventually.deep.equal(searchData.search);
     });
   });
 
@@ -106,7 +106,7 @@ describe('Domainr-api', function() {
 
       let domainrApi = new domainr('some-key');
       domainrApi
-        .status(domains).should.eventually.deep.equal(statusData);
+        .status(domains).should.eventually.deep.equal(statusData.status);
     });
   });
 

@@ -38,7 +38,15 @@ class domainr {
       queryObj[val] = properties[val];
     });
 
-    return apiRequest(this.mashapeKey, 'search', queryObj);
+    return new Promise((resolve, reject) => {
+      apiRequest(this.mashapeKey, 'search', queryObj)
+        .then((data) => {
+          resolve(data.search);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
   }
 
   status(domainArray){
@@ -59,7 +67,15 @@ class domainr {
       return Promise.reject('All domains must be a string');
     }
 
-    return apiRequest(this.mashapeKey, 'status', {domain: domainArray.join(',')});
+    return new Promise((resolve, reject) => {
+      apiRequest(this.mashapeKey, 'status', {domain: domainArray.join(',')})
+        .then((data) => {
+          resolve(data.status);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
   }
 
   register(domain, registrar) {
