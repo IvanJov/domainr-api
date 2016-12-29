@@ -1,6 +1,7 @@
 # domainr-api
 
-[![npm version](https://badge.fury.io/js/domainr-api.svg)](https://badge.fury.io/js/domainr-api)
+[![npm version](https://img.shields.io/npm/v/domainr-api.svg?maxAge=2592000?style=plastic)](https://img.shields.io/npm/v/domainr-api.svg?maxAge=2592000?style=plastic)
+[![npm downloads](https://img.shields.io/npm/dt/domainr-api.svg?maxAge=2592000?style=plastic)](https://img.shields.io/npm/dt/domainr-api.svg?maxAge=2592000?style=plastic)
 [![Build Status](https://travis-ci.org/IvanJov/domainr-api.svg?branch=master)](https://travis-ci.org/IvanJov/domainr-api)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
