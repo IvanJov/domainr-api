@@ -79,8 +79,7 @@ domainrApi
 
 #### Data returned
 ```
-{
-  "results": [
+  [
     {
       "domain": "acme.coffee",
       "host": "",
@@ -138,7 +137,6 @@ domainrApi
       "registerURL": "https://api.domainr.com/v2/register?&domain=acmecafe.org&registrar=namecheap.com&source=api"
     }
   ]
-}
 ```
 
 
@@ -167,8 +165,7 @@ domainrApi
 
 #### Data returned
 ```
-{
-  "status": [
+  [
     {
       "domain": "acecafe.net",
       "zone": "net",
@@ -200,7 +197,6 @@ domainrApi
       "summary": "inactive"
     }
   ]
-}
 ```
 
 
