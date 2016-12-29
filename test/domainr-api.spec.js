@@ -126,8 +126,7 @@ describe('Domainr-api', function() {
     it('should return valid location string', function() {
       let domainrApi = new domainr('some-key');
       domainrApi
-        .status('acme.coffee')
-        .should.eventually.equal('example.com');
+        .status('acme.coffee').should.eventually.equal('example.com');
     });
   });
 });

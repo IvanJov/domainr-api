@@ -62,7 +62,7 @@ class domainr {
     return apiRequest(this.mashapeKey, 'status', {domain: domainArray.join(',')});
   }
 
-  register(domain) {
+  register(domain, registrar) {
 
     if(!domain) {
       return Promise.reject('Domain is required');
@@ -72,8 +72,12 @@ class domainr {
       return Promise.reject('Domain needs to be a string');
     }
 
+    var requestObject = {domain};
+    if (registrar)
+      requestObject.registrar = registrar;
+
     return new Promise((resolve, reject) => {
-      apiRequest(this.mashapeKey, 'register', {domain})
+      apiRequest(this.mashapeKey, 'register', requestObject)
         .then((response) => {
           if(response.headers.location)
             return resolve(response.headers.location);
