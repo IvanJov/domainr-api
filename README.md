@@ -22,7 +22,7 @@ This is simple and lightweight NodeJS wrapper for Domainr API V2. All methods ar
 For using this library, you will need Mashape Key ([How to get free mashape key?](http://docs.mashape.com/api-keys)).
 You will can use 10000 request for free each month!
 
-Package requires NodeJS version >= 4.0.0
+**Package requires NodeJS version >= 4.0.0**
 
 ## Installation
 
