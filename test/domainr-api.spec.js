@@ -123,6 +123,12 @@ describe('Domainr-api', function() {
         .register(123).should.be.rejectedWith('Domain needs to be a string');
     });
 
+    it('should return error if registrar is not string', function() {
+      let domainrApi = new domainr('some-key');
+      domainrApi
+        .register('example.com', 1234).should.be.rejectedWith('Registrar must be a string');
+    });
+
     it('should return valid location string', function() {
       let domainrApi = new domainr('some-key');
       domainrApi

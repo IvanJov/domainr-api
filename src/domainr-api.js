@@ -72,6 +72,10 @@ class domainr {
       return Promise.reject('Domain needs to be a string');
     }
 
+    if(registrar && typeof registrar != 'string') {
+      return Promise.reject('Registrar must be a string');
+    }
+
     var requestObject = {domain};
     if (registrar)
       requestObject.registrar = registrar;
