@@ -54,12 +54,12 @@ Search method let's you search for domain. You will get `results` array with som
 
 It accepts these arguments:
 
-| Parameter	| Required | Description | Example |
-| --------- | -------- | ----------- | ------- |
-| query     | Yes | Term(s) to search against. | acme cafe |
-| location  | No | Optionally override the IP location detection for country-code zones, with a two-character country code. | de |
-| registrar | No | The domain name of a specific registrar to filter results by that registrar’s supported list of extensions (optional). | namecheap.com |
-| defaults  | No | Optional comma-separated list of default zones to include in the response. | bike,cab |
+| Parameter	| Required | Type | Description | Example |
+| --------- | -------- | ---- | ----------- | ------- |
+| query     | Yes | String | Term(s) to search against. | acme cafe |
+| location  | No | String | Optionally override the IP location detection for country-code zones, with a two-character country code. | de |
+| registrar | No | String | The domain name of a specific registrar to filter results by that registrar’s supported list of extensions (optional). | namecheap.com |
+| defaults  | No | String | Optional comma-separated list of default zones to include in the response. | bike,cab |
 
 #### Example request:
 ```js
@@ -150,9 +150,9 @@ It has limit to 10 domains per call.
 
 It accepts these arguments:
 
-| Parameter	| Required | Description | Example |
-| --------- | -------- | ----------- | ------- |
-| domains     | Yes | Array of domains to check | ['acme.coffee', 'acmecafe.com'] |
+| Parameter	| Required | Type | Description | Example |
+| --------- | -------- | ---- | ----------- | ------- |
+| domains     | Yes | Array of strings | Array of domains to check | ['acme.coffee', 'acmecafe.com'] |
 
 #### Example request:
 ```js
@@ -211,10 +211,10 @@ Register method gives generated URL that redirects user to checkout page. It's s
 
 It accepts these arguments:
 
-| Parameter	| Required | Description | Example |
-| --------- | -------- | ----------- | ------- |
-| domain    | Yes | Domain name. | example.com |
-| registrar | No | Registrar domain name | namecheap.com |
+| Parameter	| Required | Type | Description | Example |
+| --------- | -------- | ---- | ----------- | ------- |
+| domain    | Yes | String | Domain name. | example.com |
+| registrar | No | String | Registrar domain name | namecheap.com |
 
 #### Example request:
 ```js
