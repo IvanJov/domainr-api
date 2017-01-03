@@ -34,11 +34,12 @@ npm install domainr-api --save
 
 ## Usage
 
-Domainr-api class comes with two main methods. Methods always return a promise.
+Domainr-api class comes with three main methods. Methods always return a promise.
 
 Methods are:
-* search
-* status
+* [search](#search-method)
+* [status](#status-method)
+* [register](#register-method)
 
 ### Initialization
 To initialize domainr-api class, you need to pass your Mashape key. 
