@@ -238,4 +238,6 @@ Author of the package is [Ivan Jovanovic](http://ivanjov.com/).
 
 I have couple things in mind for the future:
 * [x] ~~Add Register method to the class~~
-* [ ] Create a ChatBot that will easily search/check/register domains  
+* [x] ~~Create a ChatBot that will easily search/check/register domains~~
+
+Started working on chatbot on [https://github.com/IvanJov/domain-bot](https://github.com/IvanJov/domain-bot)
