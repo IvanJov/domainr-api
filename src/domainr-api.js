@@ -79,7 +79,6 @@ class domainr {
   }
 
   register(domain, registrar) {
-
     if(!domain) {
       return Promise.reject('Domain is required');
     }

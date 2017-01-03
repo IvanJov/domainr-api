@@ -24,7 +24,7 @@ before(function () {
   nock('https://domainr.p.mashape.com/', registerData)
     .get('/v2/register')
     .query(true)
-    .reply(200, '<html><body></body></body></html>');
+    .reply(200, '<html><body></body></html>');
 });
 
 describe('Domainr-api', function() {
