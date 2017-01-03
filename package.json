@@ -1,6 +1,6 @@
 {
   "name": "domainr-api",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Unofficial Domainr API client for NodeJS",
   "main": "lib/domainr-api.js",
   "scripts": {
