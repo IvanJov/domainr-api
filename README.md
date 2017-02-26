@@ -80,64 +80,64 @@ domainrApi
 
 #### Data returned
 ```
-  [
+[
     {
-      "domain": "acme.coffee",
-      "host": "",
-      "subdomain": "acme.",
-      "zone": "coffee",
-      "path": "",
-      "registerURL": "https://api.domainr.com/v2/register?&domain=acme.coffee&registrar=namecheap.com&source=api"
+        "domain": "acme.coffee",
+        "host": "",
+        "subdomain": "acme.",
+        "zone": "coffee",
+        "path": "",
+        "registerURL": "https://api.domainr.com/v2/register?&domain=acme.coffee&registrar=namecheap.com&source=api"
     },
     {
-      "domain": "acme.kitchen",
-      "host": "",
-      "subdomain": "acme.",
-      "zone": "kitchen",
-      "path": "",
-      "registerURL": "https://api.domainr.com/v2/register?&domain=acme.kitchen&registrar=namecheap.com&source=api"
+        "domain": "acme.kitchen",
+        "host": "",
+        "subdomain": "acme.",
+        "zone": "kitchen",
+        "path": "",
+        "registerURL": "https://api.domainr.com/v2/register?&domain=acme.kitchen&registrar=namecheap.com&source=api"
     },
     {
-      "domain": "acme.restaurant",
-      "host": "",
-      "subdomain": "acme.",
-      "zone": "restaurant",
-      "path": "",
-      "registerURL": "https://api.domainr.com/v2/register?&domain=acme.restaurant&registrar=namecheap.com&source=api"
+        "domain": "acme.restaurant",
+        "host": "",
+        "subdomain": "acme.",
+        "zone": "restaurant",
+        "path": "",
+        "registerURL": "https://api.domainr.com/v2/register?&domain=acme.restaurant&registrar=namecheap.com&source=api"
     },
     {
-      "domain": "acmecafe.de",
-      "host": "",
-      "subdomain": "acmecafe.",
-      "zone": "de",
-      "path": "",
-      "registerURL": "https://api.domainr.com/v2/register?&domain=acmecafe.de&registrar=namecheap.com&source=api"
+        "domain": "acmecafe.de",
+        "host": "",
+        "subdomain": "acmecafe.",
+        "zone": "de",
+        "path": "",
+        "registerURL": "https://api.domainr.com/v2/register?&domain=acmecafe.de&registrar=namecheap.com&source=api"
     },
     {
-      "domain": "acmecafe.com",
-      "host": "",
-      "subdomain": "acmecafe.",
-      "zone": "com",
-      "path": "",
-      "registerURL": "https://api.domainr.com/v2/register?&domain=acmecafe.com&registrar=namecheap.com&source=api"
+        "domain": "acmecafe.com",
+        "host": "",
+        "subdomain": "acmecafe.",
+        "zone": "com",
+        "path": "",
+        "registerURL": "https://api.domainr.com/v2/register?&domain=acmecafe.com&registrar=namecheap.com&source=api"
     },
     {
-      "domain": "acmecafe.net",
-      "host": "",
-      "subdomain": "acmecafe.",
-      "zone": "net",
-      "path": "",
-      "registerURL": "https://api.domainr.com/v2/register?&domain=acmecafe.net&registrar=namecheap.com&source=api"
+        "domain": "acmecafe.net",
+        "host": "",
+        "subdomain": "acmecafe.",
+        "zone": "net",
+        "path": "",
+        "registerURL": "https://api.domainr.com/v2/register?&domain=acmecafe.net&registrar=namecheap.com&source=api"
     },
     {
-      "domain": "acmecafe.org",
-      "host": "",
-      "subdomain": "acmecafe.",
-      "zone": "org",
-      "path": "",
-      "registerURL": "https://api.domainr.com/v2/register?&domain=acmecafe.org&registrar=namecheap.com&source=api"
+        "domain": "acmecafe.org",
+        "host": "",
+        "subdomain": "acmecafe.",
+        "zone": "org",
+        "path": "",
+        "registerURL": "https://api.domainr.com/v2/register?&domain=acmecafe.org&registrar=namecheap.com&source=api"
     }
-  ]
+]
 ```
 
 
@@ -166,38 +166,38 @@ domainrApi
 
 #### Data returned
 ```
-  [
+[
     {
-      "domain": "acecafe.net",
-      "zone": "net",
-      "status": "active",
-      "summary": "active"
+        "domain": "acecafe.net",
+        "zone": "net",
+        "status": "active",
+        "summary": "active"
     },
     {
-      "domain": "acecafe.com",
-      "zone": "com",
-      "status": "active",
-      "summary": "active"
+        "domain": "acecafe.com",
+        "zone": "com",
+        "status": "active",
+        "summary": "active"
     },
     {
-      "domain": "acecafe.co",
-      "zone": "co",
-      "status": "active",
-      "summary": "active"
+        "domain": "acecafe.co",
+        "zone": "co",
+        "status": "active",
+        "summary": "active"
     },
     {
-      "domain": "ace.coffee",
-      "zone": "coffee",
-      "status": "undelegated active",
-      "summary": "active"
+        "domain": "ace.coffee",
+        "zone": "coffee",
+        "status": "undelegated active",
+        "summary": "active"
     },
     {
-      "domain": "acecafe.io",
-      "zone": "io",
-      "status": "undelegated inactive",
-      "summary": "inactive"
+        "domain": "acecafe.io",
+        "zone": "io",
+        "status": "undelegated inactive",
+        "summary": "inactive"
     }
-  ]
+]
 ```
 
 
@@ -238,6 +238,6 @@ Author of the package is [Ivan Jovanovic](http://ivanjov.com/).
 
 I have couple things in mind for the future:
 * [x] ~~Add Register method to the class~~
-* [x] ~~Create a ChatBot that will easily search/check/register domains~~
+* [ ] Create a ChatBot that will easily search/check/register domains
 
 Started working on chatbot on [https://github.com/IvanJov/domain-bot](https://github.com/IvanJov/domain-bot)
